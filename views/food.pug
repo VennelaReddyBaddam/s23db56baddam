@@ -7,4 +7,9 @@ block content
    div(class="container-fluid")
       div(class="row")
          each recipe in food
-            div(class="col-sm-2" onclick =`buy(${index})`) #{recipe.type}, #{recipe.name}, #{recipe.price}Rs       
+            div(class="col-sm-2" onclick =`buy(${index})`) #{recipe.type}, #{recipe.name}, #{recipe.price}Rs     
+            script.
+                 function buy(a)
+                 {
+                   alert(`You purchased Item ${a+1}`)
+                 }  
