@@ -1,8 +1,7 @@
 # f23wb56baddam
-I am vennela reddy
-
-http://localhost:3000/
-https://f23wb56baddam.onrender.com/
+I am vennala reddy
+https://f23wb56baddam.onrender.com
+http://localhost:3000
 class food {
     String type;
     String name;
