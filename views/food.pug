@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h1= title
+    -
+        var food  = [{"type": "Indian", "name": "Idly", "price": 50},{"type": "Italian", "name": "Pizza", "price": 200},{"type": "chinese", "name": "friedRice", "price": 150}]
+
+    div(class="container-fluid")
+        div(class="row")
+            each food, index in Recipe
+                div(class="col-sm-2" onclick =`buy(${index})`) #{food.type}, #{food.name}, #{food.price}Rs       
+                script.
+                 
+
+                    
+                    
