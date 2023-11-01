@@ -2,14 +2,14 @@ extends layout
 
 block content
    h1= title
-   - var food  = [{"type": "Indian", "name": "Idly", "price": 50},{"type": "Italian", "name": "Pizza", "price": 200},{"type": "chinese", "name": "friedRice", "price": 150}]
+   - var foods   = [{"type": "Indian", "name": "Idly", "price": 50},{"type": "Italian", "name": "Pizza", "price": 200},{"type": "chinese", "name": "friedRice", "price": 150}]
 
    div(class="container-fluid")
       div(class="row")
-         each recipe, index in food
-            div(class="col-sm-2" onclick =`buy(${index})`) #{recipe.type}, #{recipe.name}, #{recipe.price}Rs     
+         each food , index in foods
+            div(class="col-sm-2" onclick =`buy(${index})`) #{food.type}, #{food.name}, #{food.price}Rs     
             script.
-                 function buy(a)
-                 {
-                   alert(`You purchased Item ${a+1}`)
-                 }  
+               function buy(a)
+               {
+                  alert(`You enjoyed the ${a+1} food!`);
+               }                                                                                          
