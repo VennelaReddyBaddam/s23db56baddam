@@ -2,9 +2,9 @@ var food = require('../models/food');
 // List of all food
 exports.food_list = async function(req, res) {
   try{
-  theCostumes = await food.find();
-  console.log("theCostumes",theCostumes);
-  res.send(theCostumes);
+  thefood = await food.find();
+  console.log("thefood",thefood);
+  res.send(thefood);
   }
   catch(err){
   res.status(500);
