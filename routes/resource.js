@@ -8,7 +8,7 @@ var food_controller = require('../controllers/food');
 router.get('/', api_controller.api);
 /// FOOD ROUTES ///
 // POST request for creating a food.
-//router.post('/food', food_controller.food_create_post);
+router.post('/food', food_controller.food_create_post);
 // DELETE request to delete food.
 router.delete('/food/:id', food_controller.food_delete);
 // PUT request to update food.
