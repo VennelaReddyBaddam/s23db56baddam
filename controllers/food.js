@@ -82,7 +82,6 @@ exports.food_view_all_Page = async function(req, res) {
   res.send(`{"error": ${err}}`);
   }
   };
-<<<<<<< HEAD
   
   // Handle food delete on DELETE.
 exports.food_delete = async function(req, res) {
@@ -108,13 +107,17 @@ exports.food_delete = async function(req, res) {
     res.status(500).send(`{'error': '${err}'}`);
   }
 };
-=======
+// Handle building the view for creating a food.
+// No body, no in path parameter, no query.
+// Does not need to be async
+exports.food_create_Page = function(req, res) {
+  console.log("create view")
+  try{
+  res.render('foodcreate', { title: 'food Create'});
+  }
+  catch(err){
+  res.status(500)
+  res.send(`{'error': '${err}'}`);
+  }
+ };
 
-  // var express = require('express');
-  // const food_controllers= require('../controllers/food');
-  // var router = express.Router();
-  // /* GET food */
-  // router.get('/', food_controllers.food_view_all_Page );
-  // module.exports = router;
-  
->>>>>>> 121e6173647c02f4fbc825987cb69e4415879a2a

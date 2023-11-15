@@ -9,6 +9,6 @@ router.get('/', function(req, res, next) {
 
 /* GET detail food page */
 router.get('/detail', food_controller.food_view_one_Page);
-
-
+/* GET create food page */
+router.get('/create', food_controller.food_create_Page);
 module.exports = router;
