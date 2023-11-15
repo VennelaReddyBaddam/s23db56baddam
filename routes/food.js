@@ -12,4 +12,6 @@ router.get('/detail', food_controller.food_view_one_Page);
 router.get('/create', food_controller.food_create_Page);
 /* GET create update page */
 router.get('/update', food_controller.food_update_Page);
+/* GET delete costume page */
+router.get('/delete', food_controller.food_delete_Page);
 module.exports = router;
