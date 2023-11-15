@@ -25,9 +25,27 @@ res.send(`{"error": document for id ${req.params.id} not found`);
 };
 
 // Handle food create on POST.
-exports.food_create_post = function(req, res) {
-res.send('NOT IMPLEMENTED: food create POST');
-};
+exports.food_create_post = async function(req, res) {
+  console.log(req.body)
+  let document = new food();
+  // We are looking for a body, since POST does not have query parameters.
+  // Even though bodies can be in many different formats, we will be picky
+  // and require that it be a json object
+  // {"food_type":"goat", "cost":12, "size":"large"}
+  document.type = req.body.type;
+  document.name= req.body.name;
+  document.price = req.body.price;
+  try{
+  let result = await document.save();
+  res.send(result);
+  }
+  catch(err){
+  res.status(500);
+  res.send(`{"error": ${err}}`);
+  }
+  };
+  
+
 // Handle food delete form on DELETE.
 exports.food_delete = function(req, res) {
 res.send('NOT IMPLEMENTED: food delete DELETE ' + req.params.id);
@@ -64,6 +82,7 @@ exports.food_view_all_Page = async function(req, res) {
   res.send(`{"error": ${err}}`);
   }
   };
+<<<<<<< HEAD
   
   // Handle food delete on DELETE.
 exports.food_delete = async function(req, res) {
@@ -89,3 +108,13 @@ exports.food_delete = async function(req, res) {
     res.status(500).send(`{'error': '${err}'}`);
   }
 };
+=======
+
+  // var express = require('express');
+  // const food_controllers= require('../controllers/food');
+  // var router = express.Router();
+  // /* GET food */
+  // router.get('/', food_controllers.food_view_all_Page );
+  // module.exports = router;
+  
+>>>>>>> 121e6173647c02f4fbc825987cb69e4415879a2a
