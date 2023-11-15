@@ -1,20 +1,30 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+
 // Require controller modules.
-var api_controller = require('../controllers/api');
-var food_controller = require('../controllers/food');
-/// API ROUTE ///
-// GET resources base.
-router.get('/', api_controller.api);
-/// FOOD ROUTES ///
+const apiController = require('../controllers/api');
+const foodController = require('../controllers/food');
+
+// API ROUTE
+router.get('/', apiController.api);
+
+// FOOD ROUTES
 // POST request for creating a food.
-router.post('/food', food_controller.food_create_post);
+router.post('/food', foodController.food_create_post);
+
 // DELETE request to delete food.
-router.delete('/food/:id', food_controller.food_delete);
+router.delete('/food/:id', foodController.food_delete);
+
 // PUT request to update food.
-router.put('/food/:id', food_controller.food_update_put);
+router.put('/food/:id', foodController.food_update_put);
+
 // GET request for one food.
-router.get('/food/:id', food_controller.food_detail);
+router.get('/food/:id', foodController.food_detail);
+
 // GET request for list of all food items.
-router.get('/food', food_controller.food_list);
+router.get('/foods', foodController.food_list);
+
+// GET request for food detail view.
+router.get('/detail', foodController.food_view_one_Page);
+
 module.exports = router;

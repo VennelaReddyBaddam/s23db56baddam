@@ -25,31 +25,31 @@ db.once('open', function () {
 // Your food model and database seeding code
 var food = require('./models/food');
 
-async function recreateDB() {
-  // Delete everything
-  await food.deleteMany();
-  let instance1 = new food({ "type": "Indian", "name": "Idly", "price": 50 });
-   await instance1.save();
-    console.log('First object saved');
-    let instance2 = new food({ "type": "Italian", "name": "Pizza", "price": 200 });
-  instance2.save().then((doc) => {
-    console.log('Second object saved');
-  });
+// async function recreateDB() {
+//   // Delete everything
+//   await food.deleteMany();
+//   let instance1 = new food({ "type": "Indian", "name": "Idly", "price": 50 });
+//    await instance1.save();
+//     console.log('First object saved');
+//     let instance2 = new food({ "type": "Italian", "name": "Pizza", "price": 200 });
+//   instance2.save().then((doc) => {
+//     console.log('Second object saved');
+//   });
 
-  let instance3 = new food({ "type": "chinese", "name": "friedRice", "price": 150 });
-  instance3.save().then((doc) => {
-    console.log('Third object saved');
-  });
+//   let instance3 = new food({ "type": "chinese", "name": "friedRice", "price": 150 });
+//   instance3.save().then((doc) => {
+//     console.log('Third object saved');
+//   });
 
-  };
+//   };
 
   
 
 // Recreate the database
-let reseed = true;
-if (reseed) {
-  recreateDB();
-}
+// let reseed = true;
+// if (reseed) {
+//   recreateDB();
+// }
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
