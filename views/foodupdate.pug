@@ -2,47 +2,51 @@ extends layout
 
 block content
     h1= title
-    - let foodid = toShow._id
-    - let food_type = toShow.food_type
-    - let foodcost = toShow.cost
-    - let foodsize = toShow.size
+    
+    if toShow == null
+        h2 No instance to delete
+    else
+        - let foodid = toShow._id
+        - let food_type = toShow.food_type
+        - let foodcost = toShow.cost
+        - let foodsize = toShow.size
 
-    div.row(class='mb-2')
-        div.mr-1 ID is
-        div #{foodid}
+        div.row(class='mb-2')
+            div.mr-1 ID is
+            div #{foodid}
 
-    - let actionid = "/resource/food/" + foodid
-    form#foodForm(action=actionid, method="PUT")
-        div.form-group
-            label.foodAttr(for='type') Food type
-            input#type(type='text' name='type', value=food_type)
-        div.form-group
-            label.foodAttr(for='name') Food Name
-            input#name(type='text' name='name', value=name)
-        div.form-group
-            label.foodAttr(for='price') Food Price
-            input#price(type='number' name='price', value=price)
-        input(type="submit")
+        - let actionid = "/resource/food/" + foodid
+        form#foodForm(action=actionid, method="PUT")
+            div.form-group
+                label.foodAttr(for='type') Food type
+                input#type(type='text' name='type', value=food_type)
+            div.form-group
+                label.foodAttr(for='name') Food Name
+                input#name(type='text' name='name', value=name)
+            div.form-group
+                label.foodAttr(for='price') Food Price
+                input#price(type='number' name='price', value=price)
+            input(type="submit")
 
-    script.
-        document.forms['foodForm'].addEventListener('submit', (event) => {
-            event.preventDefault();
-            
-            // TODO: Do something here to show the user that the form is being submitted
+        script.
+            document.forms['foodForm'].addEventListener('submit', (event) => {
+                event.preventDefault();
+                
+                // TODO: Do something here to show the user that the form is being submitted
 
-            fetch(event.target.action, {
-                method: 'PUT',
-                body: new URLSearchParams(new FormData(event.target)), // event.target is the form
-            })
-            .then((resp) => {
-                return resp.json(); // or resp.text() or whatever the server sends
-            })
-            .then((body) => {
-                alert("Update succeeded");
-                // TODO: Handle the response body
-            })
-            .catch((error) => {
-                // TODO: Handle the error
-                alert("Update failed: " + error);
+                fetch(event.target.action, {
+                    method: 'PUT',
+                    body: new URLSearchParams(new FormData(event.target)), // event.target is the form
+                })
+                .then((resp) => {
+                    return resp.json(); // or resp.text() or whatever the server sends
+                })
+                .then((body) => {
+                    alert("Update succeeded");
+                    // TODO: Handle the response body
+                })
+                .catch((error) => {
+                    // TODO: Handle the error
+                    alert("Update failed: " + error);
+                });
             });
-        });
