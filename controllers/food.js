@@ -133,6 +133,7 @@ exports.food_update_Page = async function(req, res) {
   res.send(`{'error': '${err}'}`);
   }
   };
+
 // Handle a delete one view with id from query
 exports.food_delete_Page = async function(req, res) {
   console.log("Delete view for id " + req.query.id)

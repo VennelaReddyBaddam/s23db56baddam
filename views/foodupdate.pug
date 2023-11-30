@@ -4,18 +4,18 @@ block content
     h1= title
     
     if toShow == null
-        h2 No instance to delete
+        h2 No instance to update
     else
         - let foodid = toShow._id
         - let food_type = toShow.food_type
-        - let foodcost = toShow.cost
-        - let foodsize = toShow.size
+        - let name = toShow.name
+        - let price = toShow.price
 
         div.row(class='mb-2')
             div.mr-1 ID is
             div #{foodid}
 
-        - let actionid = "/resource/food/" + foodid
+        - let actionid = "/resource/food" + foodid
         form#foodForm(action=actionid, method="PUT")
             div.form-group
                 label.foodAttr(for='type') Food type

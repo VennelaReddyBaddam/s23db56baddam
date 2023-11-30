@@ -16,7 +16,7 @@ router.post('/food', foodController.food_create_post);
 router.delete('/food/:id', foodController.food_delete);
 
 // PUT request to update food.
-router.put('/food/:id', foodController.food_update_put);
+router.put('/food/update/:id', foodController.food_update_put);
 
 // GET request for one food.
 router.get('/food/:id', foodController.food_detail);
